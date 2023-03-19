@@ -7,21 +7,25 @@ let playerSelection,
     winner = [],
     roundNumber = 0;
 
-/*playerSelection = String.prototype.toLowerCase(prompt("Player choice", playerSelection));*/
-computerSelection = getComputerChoice();
 
-console.log(winner,computerSelection);
 
+
+
+game();
 function getComputerChoice() {
-    let randomNumber = Math.floor(Math.random() * 3);
+    let randomNumber
+     = Math.floor(Math.random() * 3);
     switch (randomNumber) {
         case 0:
+            console.log("we are on rock");
             return "rock";
             break;
         case 1:
+            console.log("we are on paper");
             return "paper";
             break;
         case 2:
+            console.log("we are on scissors");
             return "scissors";
             break;
         default:
@@ -30,49 +34,47 @@ function getComputerChoice() {
 }
 function playRound(playerSelection, computerSelection) {
     if (playerSelection != "rock" && playerSelection != "paper" && playerSelection != "scissors") {
-        console.log("You have not entered a correct option");
-        playerSelection = String.prototype.toLowerCase(prompt("Player choice", playerSelection));
+        playerSelection = prompt("Player choice, please enter the correct choice").toLowerCase();
         playRound(playerSelection, computerSelection);
     } else {
-
-        if (playerSelection.localCompare(computerSelection) != 0) {
+        if (playerSelection.localeCompare(computerSelection) != 0) {
             if (playerSelection === "rock") {
-                switch (computerSelection) {
-                    case "paper":
-                        console.log("You loose this round");
-                        winner[roundNumber] = "Computer";
-                        break;
-                    case "scissors":
-                        console.log("You win this round");
-                        winner[roundNumber] = "Player";
-                        break;
+                if (computerSelection === "paper") {
+                    winner[roundNumber] = "computer";
+                } else {
+                    winner[roundNumber] = "player";
                 }
             } else if (playerSelection === "paper") {
-                switch (computerSelection) {
-                    case "scissors":
-                        console.log("You loose this round");
-                        winner[roundNumber] = "Computer";
-                        break;
-                    case "rock":
-                        console.log("You win this round");
-                        winner[roundNumber] = "Player";
-                        break;
+                if (computerSelection === "scissors") {
+                    winner[roundNumber] = "computer";
+                } else {
+                    winner[roundNumber] = "player";
                 }
-            } if (playerSelection === "scissors") {
-                switch (computerSelection) {
-                    case "rock":
-                        console.log("You loose this round");
-                        winner[roundNumber] = "Computer";
-                        break;
-                    case "paper":
-                        console.log("You win this round");
-                        winner[roundNumber] = "Player";
-                        break;
+            } else {
+                if (computerSelection === "rock") {
+                    winner[roundNumber] = "computer";
+                } else {
+                    winner[roundNumber] = "player";
                 }
             }
-            roundNumber++;
+            console.log(winner[roundNumber] + " won this round");
         } else {
-            console.log("Its a tie");
+            winner[roundNumber] = "draw";
+            console.log("its a draw");
         }
+        roundNumber++;
     }
+}
+function game() {
+    for (let i = 0; i < 5; i++) {
+        computerSelection=getComputerChoice();
+        playerSelection = prompt("Choose rock, paper, or scissors").toLowerCase();
+        console.log(playerSelection, computerSelection);
+        playRound(playerSelection, computerSelection);
+    }
+}
+
+function gameWinner(winner)
+{
+    
 }
