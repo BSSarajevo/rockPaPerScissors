@@ -1,31 +1,21 @@
-const ROCK = 1,
-    PAPER = 2;
-SCISSORS = 3;
-
 let playerSelection,
     computerSelection,
     winner = [],
     roundNumber = 0;
 
-
-
-
-
 game();
+
 function getComputerChoice() {
     let randomNumber
-     = Math.floor(Math.random() * 3);
+        = Math.floor(Math.random() * 3);
     switch (randomNumber) {
         case 0:
-            console.log("we are on rock");
             return "rock";
             break;
         case 1:
-            console.log("we are on paper");
             return "paper";
             break;
         case 2:
-            console.log("we are on scissors");
             return "scissors";
             break;
         default:
@@ -66,15 +56,23 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 function game() {
-    for (let i = 0; i < 5; i++) {
-        computerSelection=getComputerChoice();
+    for (let i = 0; i < 10; i++) {
+        computerSelection = getComputerChoice();
         playerSelection = prompt("Choose rock, paper, or scissors").toLowerCase();
         console.log(playerSelection, computerSelection);
         playRound(playerSelection, computerSelection);
     }
+    gameWinner();
 }
-
-function gameWinner(winner)
-{
-    
+function gameWinner() {
+    let playerCount = winner.filter(x => x === "player").length,
+        computerCount = winner.filter(x => x === "computer").length;
+    console.log("\n***************************************************")
+    if (playerCount > computerCount) {
+        console.log("The player is the winner with " + playerCount + " wins");
+    } else if (playerCount === computerCount) {
+        console.log("Its a draw");
+    } else {
+        console.log("The computer is the winner with " + computerCount + " wins");
+    }
 }
