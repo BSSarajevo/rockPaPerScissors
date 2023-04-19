@@ -3,13 +3,14 @@
  */
 // middle circle that is used for determening the mouse angle
 // it will work with inline svg and let anchor=document.getelementbyid('MiddleCircle')
-let anchor=document.getElementsByName('svgClass').document.getElementById('MiddleCircle');
-console.log(anchor.checkVisibility());
+let anchor=document.getElementById('svgClass');
+
+let rekt=anchor.getBoundingClientRect();
 const anchorX = rekt.left + rekt.width / 2;
 const anchorY = rekt.top + rekt.height / 2;
-
+console.log(anchorX+" "+anchorY);
 // Rectangle is used for possitioning rock paper scissors icons. Two of them are at the upper corners of the rectangle, while the third is possitioned on the middle of the bottom line 
-anchor = document.querySelector(".svgClass").getSVGDocument().getElementById('Rectangle');
+
 rekt = anchor.getBoundingClientRect();
 console.log(rekt.cy);
 const lowX=rekt.left-rekt.width/2;

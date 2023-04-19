@@ -1,0 +1,22 @@
+.Parent {
+    width: 600px;
+    height: 600px;
+    position: relative;
+    border: 2px red solid;
+}
+
+#Back-Circle {
+    position: relative;
+    display: block;
+}
+
+#Vectors {
+    position: absolute;
+    top: 0;
+}
+#Chooser {
+    position: absolute;
+    top: 0;
+    transform: rotate("90deg");
+}
+

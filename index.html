@@ -1,35 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    
-    <style>
-        body {
-            background-color: white;
-            color: white;
-            padding: 0;
-            margin: 0;
-        }
-        main {
-            display:grid;
-            place-items: center;
-            min-height: 100vh;
-            position: relative;
-        }
-    </style>
-    
-    
-    
+    <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
     <main>
-       <object name="svgClass" type="image/svg+xml" data="Player.svg">
-       
-       </object>
+        <div class="Parent">
+            <img id="Back-Circle" type="image/svg+xml" src="BackCircle.svg" />
+            <img id="Vectors" type="image/svg+xml" src="Vectors.svg"  />
+            <img id="Chooser" type="image/svg+xml" src="Chooser.svg" />    
+            <img id="Front-Circle" type="image/svg+xml" src="BackCircle.svg" />
+        </div>
+
+
     </main>
     <script src="rotation.js"></script>
 </body>
+
 </html>
